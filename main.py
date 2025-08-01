@@ -53,7 +53,7 @@ def main():
     # Excel形式に整形
     start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
     date_rows = []
-    for day_offset in range(30):
+    for day_offset in range(31):
         current_date = start_date + timedelta(days=day_offset)
         weekday = ["月", "火", "水", "木", "金", "土", "日"][current_date.weekday()]
         date = current_date.day
@@ -71,8 +71,8 @@ def main():
 
     # データフレームに変換
     df = pd.DataFrame(date_rows)
-    df.head(30)
-    print(df.head(30))
+    df.head(31)
+    print(df.head(31))
     df.to_excel(output_file, index=False, engine="openpyxl")
     print(f"Excelファイルを出力しました: {output_file}")
 
